@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'jay'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'jay'
+app.config['MYSQL_DATABASE_USER'] = 'shaun'
+app.config['MYSQL_DATABASE_PASSWORD'] = '1234'
 app.config['MYSQL_DATABASE_DB'] = 'BucketList'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
@@ -50,11 +50,9 @@ def signUp():
 				return json.dumps({'error':str(data[0])})
 		else:
 			return json.dumps({'html':'<span>Enter the required fields</span>'})
-
 	except Exception as e:
 		return json.dumps({'error':str(e)})
-
-	finally:
+	else:
 		cursor.close()
 		conn.close()
 
